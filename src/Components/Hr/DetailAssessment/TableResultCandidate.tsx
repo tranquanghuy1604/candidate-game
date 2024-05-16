@@ -147,6 +147,7 @@ export default function TableResultCandidate({
                 <th className="text-center text-[#009DBE]">Average Aptitude</th>
                 {listGame?.games?.map((item: any) => (
                   <th
+                    key={item.id}
                     onClick={() => {
                       if (item.name === "Logical challenge") {
                         handleSortField("rank_logical_game");
@@ -235,7 +236,7 @@ export default function TableResultCandidate({
                     </p>
                   </td>
                   {listGame?.games?.map((items: any) => (
-                    <td className="text-center py-[10px]">
+                    <td key={items.id} className="text-center py-[10px]">
                       {items?.name === "Numerical challenge" &&
                         item?.numerical_game}
                       {items?.name === "Verbal challenge" && item?.verbal_game}

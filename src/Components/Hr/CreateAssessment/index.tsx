@@ -75,7 +75,7 @@ export default function CreateAssessment() {
             </div>
           ) : (
             data?.data?.data?.assessments?.map((item: any, index: any) => (
-              <ActiveAssessment item={item} key={index} />
+              <ActiveAssessment key={item.id} item={item} />
             ))
           )}
         </div>

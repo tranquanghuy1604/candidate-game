@@ -187,7 +187,7 @@ export default function ActiveAssessment({ item }: any) {
           </div>
         </div>
       </div>
-      <div key={item.id}>
+      <div>
         <DeleteModal
           id={item.id}
           open={isDelete}

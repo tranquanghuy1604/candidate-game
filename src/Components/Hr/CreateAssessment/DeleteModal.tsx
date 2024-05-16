@@ -21,16 +21,15 @@ export default function DeleteModal({ open, onClose, id }: any) {
   );
 
   const handleRemoveAssessment = async () => {
-    deleteMutation.mutate({ assessment_id: id });
+    await deleteMutation.mutate({ assessment_id: id });
   };
   return (
     <Modal
-      key={id}
       centered
       open={open}
       onCancel={onClose}
       footer={[
-        <div>
+        <div key={id}>
           <Button
             onClick={onClose}
             className="bg-[#DEDDDD] border-none hover:border-none text-[#22313F] text-[16px] font-[500] leading-[24px]"
