@@ -6,6 +6,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import ActiveAssessment from "./ActiveAssessment";
 import ArchivedAssessment from "./ArchivedAssessment";
 import CreateAssessmentModal from "./CreateAssessmentModal";
+import DefaultHead from "@/layouts/default-head";
 
 export default function CreateAssessment() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,6 +51,7 @@ export default function CreateAssessment() {
 
   return (
     <>
+      <DefaultHead />
       <div className="mt-[20px]">
         <div className="flex justify-between">
           <h4 className="text-[32px] leading-[44px] font-[600] font-poppins">

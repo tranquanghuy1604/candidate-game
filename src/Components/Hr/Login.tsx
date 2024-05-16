@@ -2,6 +2,7 @@ import getListAssessment from "@/api/hr/listAssessment";
 import loginApi from "@/api/hr/login";
 import InputField from "@/common/Controller/InputField";
 import InputFieldPassword from "@/common/Controller/InputFieldPassword";
+import DefaultHead from "@/layouts/default-head";
 import useAuth from "@/zustand/useAuth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "antd";
@@ -91,83 +92,86 @@ export default function Login() {
   };
 
   return (
-    <div className="p-8">
-      <div className="cursor-pointer">
-        <Image
-          className="w-full max-w-[200px]"
-          src="/hrview/home/logo.png"
-          alt=""
-          width={200}
-          height={60}
-        />
-      </div>
-      <div className="flex justify-between items-center">
-        <div className="w-[50%]">
+    <>
+      <DefaultHead />
+      <div className="p-8">
+        <div className="cursor-pointer">
           <Image
-            className="w-full mx-auto"
-            src="/hrview/login/pytalent-img.png"
+            className="w-full max-w-[200px]"
+            src="/hrview/home/logo.png"
             alt=""
-            height={680}
-            width={680}
+            width={200}
+            height={60}
           />
         </div>
-        <div className="w-[50%] flex justify-center">
-          <div>
-            <h3 className="text-center text-[40px] leading-[56px] font-[600] font-poppins">
-              Welcome to pytalent
-            </h3>
-            <div className="w-full mx-auto">
-              <form
-                autoComplete="off"
-                name="basic"
-                style={{ maxWidth: 600 }}
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                <div className="mt-[20px]">
-                  <label className="text-[16px] leading-[24px] font-[600] font-poppins">
-                    Email
-                  </label>
-                  <InputField
-                    name="email"
-                    control={control}
-                    placeholder="'Email"
-                    errors={errors}
-                  />
-                </div>
-
-                <div className="mt-[20px]">
-                  <label className="text-[16px] leading-[24px] font-[600] font-poppins">
-                    Password
-                  </label>
-                  <InputFieldPassword
-                    name="password"
-                    placeholder="Password"
-                    control={control}
-                    errors={errors}
-                  ></InputFieldPassword>
-                </div>
-
-                <Button
-                  type="primary"
-                  className="w-full mt-[20px]"
-                  htmlType="submit"
-                  loading={loading}
+        <div className="flex justify-between items-center">
+          <div className="w-[50%]">
+            <Image
+              className="w-full mx-auto"
+              src="/hrview/login/pytalent-img.png"
+              alt=""
+              height={680}
+              width={680}
+            />
+          </div>
+          <div className="w-[50%] flex justify-center">
+            <div>
+              <h3 className="text-center text-[40px] leading-[56px] font-[600] font-poppins">
+                Welcome to pytalent
+              </h3>
+              <div className="w-full mx-auto">
+                <form
+                  autoComplete="off"
+                  name="basic"
+                  style={{ maxWidth: 600 }}
+                  onSubmit={handleSubmit(onSubmit)}
                 >
-                  Submit
-                </Button>
-              </form>
-              <div className="mt-[30px] flex justify-end">
-                <Link
-                  href="/forgot-password"
-                  className="text-[18px] leading-[24px] font-[400] font-poppins underline underline-offset-1 text-[#009DBE]"
-                >
-                  Forgot password
-                </Link>
+                  <div className="mt-[20px]">
+                    <label className="text-[16px] leading-[24px] font-[600] font-poppins">
+                      Email
+                    </label>
+                    <InputField
+                      name="email"
+                      control={control}
+                      placeholder="'Email"
+                      errors={errors}
+                    />
+                  </div>
+
+                  <div className="mt-[20px]">
+                    <label className="text-[16px] leading-[24px] font-[600] font-poppins">
+                      Password
+                    </label>
+                    <InputFieldPassword
+                      name="password"
+                      placeholder="Password"
+                      control={control}
+                      errors={errors}
+                    ></InputFieldPassword>
+                  </div>
+
+                  <Button
+                    type="primary"
+                    className="w-full mt-[20px]"
+                    htmlType="submit"
+                    loading={loading}
+                  >
+                    Submit
+                  </Button>
+                </form>
+                <div className="mt-[30px] flex justify-end">
+                  <Link
+                    href="/forgot-password"
+                    className="text-[18px] leading-[24px] font-[400] font-poppins underline underline-offset-1 text-[#009DBE]"
+                  >
+                    Forgot password
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import DefaultHead from "@/layouts/default-head";
 import { Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,6 +6,7 @@ import Link from "next/link";
 export default function HomeHrView() {
   return (
     <>
+      <DefaultHead />
       <div className="flex justify-between items-center">
         <div className="cursor-pointer">
           <Image
