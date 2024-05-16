@@ -1,0 +1,11 @@
+.ant-upload-wrapper {
+  display: grid;
+  justify-content: center;
+  .ant-upload-select {
+    display: flex;
+    justify-content: center;
+  }
+  .ant-upload-list-picture {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,245 @@
+// import type { DatePickerProps } from "antd";
+// import {
+//   Button,
+//   Cascader,
+//   DatePicker,
+//   Form,
+//   Input,
+//   Modal,
+//   Radio,
+//   Select,
+//   Space,
+//   TreeSelect,
+//   theme,
+// } from "antd";
+// import type { Dayjs } from "dayjs";
+// import React, { useEffect, useState } from "react";
+// import { projectData, treeData } from "./projectData";
+// import { title } from "process";
+
+// const menu = [
+//   { value: "huy", label: "nice" },
+//   { value: "huydd", label: "niceaa" },
+// ];
+
+// const { SHOW_PARENT } = TreeSelect;
+
+// export default function CreateAssessmentModal({ open, onClose }: any) {
+//   const [isOpenDate, setIsOpenDate] = useState(false);
+//   const displayRender = (label: string[]) => label.join(" - ");
+//   const [selectedValue, setSelectedValue] = useState(null);
+//   const [showAdditionalField, setShowAdditionalField] = useState(false);
+//   const [check, setCheck] = useState(false);
+//   const [valueList, setValueList] = useState([]);
+//   const [selectedValueLanguage, setSelectedValueLanguage] = useState("");
+//   console.log(valueList);
+
+//   const checkValue = valueList?.includes("Personality test" as never);
+
+//   useEffect(() => {
+//     try {
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   });
+
+//   const handleCascaderChange = (value: any) => {
+//     setSelectedValue(value);
+
+//     setShowAdditionalField(value && value.length > 0 && value[0] === "Other");
+//   };
+
+//   const { token } = theme.useToken();
+
+//   const handleChange = (value: { value: string; label: React.ReactNode }) => {
+//     console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
+//   };
+//   const style: React.CSSProperties = {
+//     border: `1px solid ${token.colorPrimary}`,
+//     borderRadius: "50%",
+//   };
+//   const cellRender: DatePickerProps<Dayjs>["cellRender"] = (current, info) => {
+//     if (info.type !== "date") {
+//       return info.originNode;
+//     }
+//     if (typeof current === "number" || typeof current === "string") {
+//       return <div className="ant-picker-cell-inner">{current}</div>;
+//     }
+//     return (
+//       <div
+//         className="ant-picker-cell-inner"
+//         style={current.date() === 1 ? style : {}}
+//       >
+//         {current.date()}
+//       </div>
+//     );
+//   };
+
+//   const addValuePersonality = (value: string) => {
+//     const newValueList = valueList.filter(
+//       (item: any) =>
+//         item !== selectedValueLanguage && item !== "Personality test"
+//     );
+//     setValueList([...newValueList, value] as never);
+//     setSelectedValueLanguage(value);
+//   };
+
+//   const onChange = (newValueList: any) => {
+//     if (checkValue) {
+//       setCheck(true);
+//     } else {
+//       setCheck(true);
+//     }
+//     setValueList(newValueList);
+//   };
+
+//   const renderTitle = () => (
+//     <h2 className="ml-[24px] mb-[10px] text-[#6F767E] text-[16px] leading-[24px] font-[400]">
+//       Choose tests for your assessmentes
+//     </h2>
+//   );
+//   const renderFooter = () => (
+//     <Button
+//       className="w-full max-w-[430px] flex justify-center mt-[20px] mx-auto text-center h-[30px]"
+//       type="primary"
+//     >
+//       Save
+//     </Button>
+//   );
+
+//   const tProps = {
+//     treeData,
+//     value: valueList,
+//     onChange,
+//     treeCheckable: true,
+//     showCheckedStrategy: SHOW_PARENT,
+//     placeholder: "example: Sales - Senior Excutive",
+//     className: "w-full",
+//     dropdownRender: (menu: any) => (
+//       <div>
+//         {renderTitle()}
+//         {menu}
+//         {check && (
+//           <div>
+//             <>
+//               <Radio.Group
+//                 value={selectedValueLanguage}
+//                 className="flex flex-col ml-8 gap-3"
+//                 onChange={(e) => {
+//                   const selectedValue = e.target.value;
+//                   if (
+//                     selectedValue === "Personality test in English" ||
+//                     selectedValue === "Personality test in Vietnamese"
+//                   ) {
+//                     addValuePersonality(selectedValue);
+//                   }
+//                 }}
+//                 name="personalityTest"
+//               >
+//                 <Radio value={"Personality test in English"}>
+//                   Personality test in English
+//                 </Radio>
+//                 <Radio value={"Personality test in Vietnamese"}>
+//                   Personality test in Vietnamese
+//                 </Radio>
+//               </Radio.Group>
+//               <span className="flex flex-col ml-8  w-2/3 opacity-70">
+//                 PyTalent offers two languague versions of personality test. You
+//                 can choose which one is most suitable for your candidates.
+//               </span>
+//             </>
+//           </div>
+//         )}
+//         {renderFooter()}
+//       </div>
+//     ),
+//   };
+
+//   return (
+//     <Modal destroyOnClose={true} open={open} onCancel={onClose} footer={null}>
+//       <h2 className="text-[32px] leading-[44px] font-[600]">
+//         Create new assessment
+//       </h2>
+//       <div className="mt-[30px]">
+//         <Form>
+//           <div>
+//             <label className="text-[16px] font-[500] leading-[24px]">
+//               Your assessment name *
+//             </label>
+//             <Input type="text" className="min-h-[56px]" />
+//           </div>
+//           <div className="mt-[20px]">
+//             <label className="block text-[16px] font-[500] leading-[24px]">
+//               Select tests *
+//             </label>
+//             <Select
+//               className="min-h-[56px]"
+//               labelInValue
+//               defaultValue={{ value: "lucy", label: "Lucy (101)" }}
+//               style={{ width: "100%" }}
+//               onChange={handleChange}
+//               options={menu.map((item: any) => item)}
+//             />
+//           </div>
+//           <div className="mt-[20px]">
+//             <label className="block text-[16px] font-[500] leading-[24px]">
+//               Position recruiting *
+//             </label>
+//             <Cascader
+//               placeholder="List of huring"
+//               options={projectData}
+//               fieldNames={{
+//                 label: "projectName",
+//                 value: "projectName",
+//                 children: "children",
+//               }}
+//               expandTrigger="hover"
+//               allowClear
+//               showSearch
+//               onChange={handleCascaderChange}
+//               displayRender={displayRender}
+//               style={{ width: "100%", minHeight: "56px" }}
+//             />
+//             {/* <Input type="text" className="min-h-[56px]" /> */}
+//           </div>
+//           {showAdditionalField && (
+//             <div className="mt-[20px]">
+//               <label className="block text-[16px] font-[500] leading-[24px]">
+//                 Specify “Other” position
+//               </label>
+//               <TreeSelect {...tProps} />
+//             </div>
+//           )}
+//           <div className="mt-[20px] w-full">
+//             <label className="block text-[16px] font-[500] leading-[24px]">
+//               Assessment date
+//             </label>
+//             <Space size={12} direction="vertical">
+//               {/* <DatePicker cellRender={cellRender} /> */}
+//               <DatePicker.RangePicker
+//                 placeholder={["Start", "End"]}
+//                 cellRender={cellRender}
+//                 className="min-h-[56px]"
+//                 style={{ width: "100%" }}
+//                 renderExtraFooter={() => (
+//                   <div className="flex justify-end gap-[20px] items-center my-[20px]">
+//                     <Button
+//                       onClick={() => setIsOpenDate(!isOpenDate)}
+//                       className="bg-[#CCEBF2] border-none"
+//                     >
+//                       Cancel
+//                     </Button>
+//                     <Button type="primary">Apply</Button>
+//                   </div>
+//                 )}
+//               />
+//             </Space>
+//           </div>
+//           <Button className="w-full mt-[40px] h-[40px]" type="primary">
+//             Create
+//           </Button>
+//         </Form>
+//       </div>
+//     </Modal>
+//   );
+// }

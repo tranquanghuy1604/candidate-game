@@ -1,0 +1,34 @@
+.css-dev-only-do-not-override-1ffatyw .ant-space-vertical {
+  width: 100%;
+}
+.ant-picker {
+  .ant-picker-input {
+    width: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #6f767e;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .ant-picker-suffix {
+    display: flex;
+    justify-content: end;
+    flex: 1;
+    color: #6f767e;
+    font-size: 20px;
+  }
+}
+.ant-cascader-dropdown {
+  min-width: 150px !important;
+  min-height: 200px;
+  div {
+    height: 100%;
+    .ant-cascader-menus {
+      height: 100%;
+      .ant-cascader-menu {
+        height: 100%;
+      }
+    }
+  }
+}

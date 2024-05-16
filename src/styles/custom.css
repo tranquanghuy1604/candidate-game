@@ -1,0 +1,27 @@
+.test {
+  .ant-tooltip-arrow {
+    display: none;
+  }
+}
+.ant-modal-content {
+  .ant-modal-title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: "44px";
+    color: "#111315";
+  }
+}
+
+.ant-tree-select {
+  .ant-select-selector {
+    width: "100%";
+    min-height: 56px;
+    .ant-select-selection-item {
+      background: none;
+      border: none;
+      .ant-select-selection-item-remove {
+        display: none;
+      }
+    }
+  }
+}

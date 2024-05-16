@@ -1,0 +1,9 @@
+.ant-dropdown .ant-dropdown-menu {
+  .ant-dropdown-menu-item {
+    padding: 16px 10px 16px 16px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #111315;
+  }
+}
