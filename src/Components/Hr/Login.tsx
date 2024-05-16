@@ -72,9 +72,9 @@ export default function Login() {
       cookie.set("access_token_hr", data?.data?.data?.access_token, {
         expires: 3,
       });
-      toast.success("Đăng nhập thành công");
       await getListAssessment.handleGetListAssessmentApi;
       router.push("/list-assessment");
+      toast.success("Đăng nhập thành công");
     },
     onError: (error) => {
       toast.error("Đăng nhập thất bại");
