@@ -1,1 +1,1 @@
-export const url = 'https://candidate-game.vercel.app/'
+export const url = 'https://candidate-game.vercel.app'
