@@ -8,6 +8,7 @@ import useStore from "@/zustand/assessmentStore";
 import copyAssessmentApi from "@/api/hr/copyAssessment";
 import toast from "react-hot-toast";
 import { useMutation } from "react-query";
+import { url } from "@/Type/config";
 
 export default function InviteParticipantsModal({
   open,
@@ -18,7 +19,7 @@ export default function InviteParticipantsModal({
   const [value, setValue] = useState("");
   const [renderEmails, setRenderEmails] = useState<string[]>([]);
   const [isOpenUpload, setIsOpenUpload] = useState(false);
-  const [link, setLink] = useState("http://localhost:3000/candidate");
+  const [link, setLink] = useState(url);
   const [listAssessment, setListAssessment] = useState(null);
 
   const handleEnterEmail = (e: React.KeyboardEvent<HTMLInputElement>) => {
