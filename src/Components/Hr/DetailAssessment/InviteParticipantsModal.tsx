@@ -19,9 +19,12 @@ export default function InviteParticipantsModal({
   const [value, setValue] = useState("");
   const [renderEmails, setRenderEmails] = useState<string[]>([]);
   const [isOpenUpload, setIsOpenUpload] = useState(false);
-  const [link, setLink] = useState(url);
-  const [listAssessment, setListAssessment] = useState(null);
 
+  const [listAssessment, setListAssessment] = useState(null);
+  const currentUrl = window.location.href;
+  const baseUrl = currentUrl.split("/list-assessment/")[0];
+  const newUrl = `${baseUrl}/candidate/${token}`;
+  const [link, setLink] = useState(newUrl);
   const handleEnterEmail = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       setRenderEmails((prevRenderEmails) => [value, ...prevRenderEmails]);
@@ -153,7 +156,7 @@ export default function InviteParticipantsModal({
             <div className="flex justify-between gap-[20px] mt-[10px]">
               <Input
                 // onChange={(e) => setLink(e.target.value)}
-                value={`${link}/${token}`}
+                value={`${link}`}
                 disabled
                 type="text"
                 placeholder="Enter email, seperated by comma"
@@ -161,7 +164,7 @@ export default function InviteParticipantsModal({
                 suffix={
                   <button
                     className="text-[#009DBE] flex items-center gap-[10px]"
-                    onClick={() => handleCopyLink(`${link}/${token}`)}
+                    onClick={() => handleCopyLink(`${link}`)}
                   >
                     <p className="text-[16px] font-[500] leading-[24px]">
                       Copy link
