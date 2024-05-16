@@ -67,7 +67,7 @@ export default function CreateAssessment() {
             Create new assessment
           </Button>
         </div>
-        <div className="flex flex-wrap items-center gap-[40px]">
+        <div className="flex flex-wrap items-center gap-[20px]">
           {isLoading ? (
             <div className="flex flex-wrap items-center gap-[40px] mt-[20px]">
               <Skeleton width="283px" height="241px" />

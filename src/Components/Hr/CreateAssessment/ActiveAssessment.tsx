@@ -36,7 +36,7 @@ export default function ActiveAssessment({ item }: any) {
         onMouseOver={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
-        <div className="overflow-hidden group cursor-pointer relative w-full min-w-[285px] px-[20px] border-[1px] border-solid border-[#DEDDDD] hover:border-[#009DBE] rounded-[16px]">
+        <div className="overflow-hidden group cursor-pointer relative min-w-[285px] px-[20px] border-[1px] border-solid border-[#DEDDDD] hover:border-[#009DBE] rounded-[16px]">
           <Image
             className={`absolute top-0 left-0 w-full h-full z-[1] transition-all ${
               isHover ? "scale-[6]" : ""
