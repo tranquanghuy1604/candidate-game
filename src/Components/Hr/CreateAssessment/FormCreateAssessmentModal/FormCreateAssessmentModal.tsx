@@ -22,7 +22,7 @@ const schema = yup.object().shape({
 
 export default function FormCreateAssessmentModal({ onClose }: any) {
   const displayRender = (label: string[]) => label.join(" - ");
-  const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedValue, setSelectedValue] = useState("");
   const [showAdditionalField, setShowAdditionalField] = useState(false);
   const [valueList, setValueList] = useState([]);
   const [selectedValueRadioButton, setSelectValueRadioButton] = useState("");
@@ -192,7 +192,7 @@ export default function FormCreateAssessmentModal({ onClose }: any) {
             onChange={handleCascaderChange}
           />
           {/* <Input type="text" className="min-h-[56px]" /> */}
-          {errors?.positionHiring && (
+          {errors?.positionHiring && selectedValue.length === 0 && (
             <span className="text-red-500">
               {errors?.positionHiring.message}
             </span>

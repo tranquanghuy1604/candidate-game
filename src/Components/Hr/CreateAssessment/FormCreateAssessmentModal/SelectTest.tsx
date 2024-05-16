@@ -65,7 +65,7 @@ export default function SelectTest({
           </svg>
         </div>
       </div>
-      {errors?.selectTest && (
+      {errors?.selectTest && valueList.length === 0 && (
         <span className="text-red-500">{errors?.selectTest.message}</span>
       )}
       {showOptionCheckBox && (
