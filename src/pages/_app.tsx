@@ -7,6 +7,8 @@ import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "react-query";
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
+import { DefaultSeo } from "next-seo";
+import { NEXT_SEO_DEFAULT } from "../../next-seo-config";
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -42,6 +44,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     <>
       <QueryClientProvider client={queryClient}>
         <ConfigProvider theme={theme}>
+          <DefaultSeo {...NEXT_SEO_DEFAULT} />
           {getLayout(<Component {...pageProps} />)}
           <Toaster position="top-right" />
         </ConfigProvider>
